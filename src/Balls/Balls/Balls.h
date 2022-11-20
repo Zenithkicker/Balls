@@ -5,6 +5,7 @@
 #include "bakkesmod/plugin/PluginSettingsWindow.h"
 
 #include "version.h"
+#include "CourseManager.h"
 constexpr auto plugin_version = stringify(VERSION_MAJOR) "." stringify(VERSION_MINOR) "." stringify(VERSION_PATCH) "." stringify(VERSION_BUILD);
 
 struct FNameStruct {
@@ -45,5 +46,7 @@ class Balls: public BakkesMod::Plugin::BakkesModPlugin, public BakkesMod::Plugin
 	void OnFreeplayDestroy(std::string eventName);
 	void OnKeyPressed(ActorWrapper aw, void* params, std::string eventName);
 	const std::string Cvar_Plugin_Enabled = "plugin_enabled";
+	const std::string Cvar_Balls_Gate_Distance_From_Car = "balls_gate_distance_from_car";
+	CourseManager _courseManager = CourseManager();
 };
 
